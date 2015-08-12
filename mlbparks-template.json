@@ -9,7 +9,8 @@
       }
    },
    "labels": {
-      "template": "mlbparks"
+      "application": "mlbparks",
+      "createdBy": "template-mlbparks"
    },
    "parameters": [
       {
@@ -24,13 +25,12 @@
       },
       {
          "description": "Custom hostname for service routes.  Leave blank for default hostname, e.g.: <application-name>.<project>.<default-domain-suffix>",
-         "name": "APPLICATION_HOSTNAME",
-         "value": ""
+         "name": "APPLICATION_HOSTNAME"
       },
       {
          "description": "Git source URI for application",
          "name": "GIT_URI",
-         "value": "https://github.com/gshipley/openshift3mlbparks.git"
+         "value": "https://github.com/jorgemoralespou/openshift3mlbparks.git"
       },
       {
          "description": "Git branch/tag reference",
@@ -90,10 +90,7 @@
          "kind": "BuildConfig",
          "apiVersion": "v1",
          "metadata": {
-            "name": "${APPLICATION_NAME}",
-            "labels": {
-               "application": "${APPLICATION_NAME}"
-            }
+            "name": "${APPLICATION_NAME}"
          },
          "spec": {
             "triggers": [
@@ -143,10 +140,7 @@
          "kind": "ImageStream",
          "apiVersion": "v1",
          "metadata": {
-            "name": "${APPLICATION_NAME}",
-            "labels": {
-               "application": "${APPLICATION_NAME}"
-            }
+            "name": "${APPLICATION_NAME}"
          },
          "spec": {
             "dockerImageRepository": "",
@@ -161,10 +155,7 @@
          "kind": "DeploymentConfig",
          "apiVersion": "v1",
          "metadata": {
-            "name": "${APPLICATION_NAME}-mongodb",
-            "labels": {
-               "application": "${APPLICATION_NAME}"
-            }
+            "name": "${APPLICATION_NAME}-mongodb"
          },
          "spec": {
             "strategy": {
@@ -197,8 +188,7 @@
                "metadata": {
                   "name": "${APPLICATION_NAME}-mongodb",
                   "labels": {
-                     "deploymentConfig": "${APPLICATION_NAME}-mongodb",
-                     "application": "${APPLICATION_NAME}"
+                     "deploymentConfig": "${APPLICATION_NAME}-mongodb"
                   }
                },
                "spec": {
@@ -275,8 +265,7 @@
          "metadata": {
             "name": "${APPLICATION_NAME}",
             "labels": {
-               "deploymentConfig": "${APPLICATION_NAME}",
-               "application": "${APPLICATION_NAME}"
+               "deploymentConfig": "${APPLICATION_NAME}"
             }
          },
          "spec": {
@@ -308,8 +297,7 @@
             "template": {
                "metadata": {
                   "labels": {
-                     "deploymentConfig": "${APPLICATION_NAME}",
-                     "application": "${APPLICATION_NAME}"
+                     "deploymentConfig": "${APPLICATION_NAME}"
                   }
                },
                "spec": {
@@ -384,9 +372,6 @@
          "apiVersion": "v1",
          "metadata": {
             "name": "${APPLICATION_NAME}-http-route",
-            "labels": {
-               "application": "${APPLICATION_NAME}"
-            },
             "annotations": {
                "description": "Route for application's http service"
             }
@@ -403,10 +388,7 @@
          "kind": "Service",
          "apiVersion": "v1",
          "metadata": {
-            "name": "mongodb",
-            "labels": {
-               "application": "${APPLICATION_NAME}"
-            }
+            "name": "mongodb"
          },
          "spec": {
             "ports": [
@@ -425,9 +407,6 @@
          "apiVersion": "v1",
          "metadata": {
             "name": "${APPLICATION_NAME}-http",
-            "labels": {
-               "application": "${APPLICATION_NAME}"
-            },
             "annotations": {
                "description": "Ping service for clustered applications"
             }
@@ -450,9 +429,6 @@
          "apiVersion": "v1",
          "metadata": {
             "name": "${APPLICATION_NAME}-ping",
-            "labels": {
-               "application": "${APPLICATION_NAME}"
-            },
             "annotations": {
                "description": "Ping service for clustered applications"
             }
