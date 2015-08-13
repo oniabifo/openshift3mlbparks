@@ -408,7 +408,7 @@
          "metadata": {
             "name": "${APPLICATION_NAME}-http",
             "annotations": {
-               "description": "Ping service for clustered applications"
+               "description": "The web server's http port"
             }
          },
          "spec": {
