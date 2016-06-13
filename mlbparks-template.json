@@ -14,11 +14,6 @@
    },
    "parameters": [
       {
-         "description": "EAP Release version, e.g. 6.4, etc.",
-         "name": "EAP_RELEASE",
-         "value": "6.4"
-      },
-      {
          "description": "The name for the application.",
          "name": "APPLICATION_NAME",
          "value": "mlbparks"
@@ -36,6 +31,12 @@
          "description": "Git branch/tag reference",
          "name": "GIT_REF",
          "value": "master"
+      },
+      {
+         "description": "Maven mirror url. If nexus is deployed locally, use nexus url (e.g. http://nexus.ci.apps.10.2.2.2.xip.io/content/groups/public/)",
+         "name": "MAVEN_MIRROR_URL",
+         "displayName": "Maven mirror url",
+         "required": false
       },
       {
          "description": "Database name",
@@ -124,7 +125,7 @@
                   "from": {
                      "kind": "ImageStreamTag",
                      "namespace": "openshift",
-                     "name": "jboss-eap6-openshift:${EAP_RELEASE}"
+                     "name": "jboss-eap64-openshift:1.3"
                   }
                }
             },
@@ -350,6 +351,10 @@
                            {
                               "name": "MONGODB_ADMIN_PASSWORD",
                               "value": "${MONGODB_ADMIN_PASSWORD}"
+                           },
+                           {
+                              "name": "MAVEN_MIRROR_URL",
+                              "value": "${MAVEN_MIRROR_URL"
                            }
                         ],
                         "resources": {},
