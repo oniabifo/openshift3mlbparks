@@ -7,7 +7,7 @@ This sample application will create and deploy a JBoss EAP application server as
 
 ````
 $ oc login https://yourOpenShiftServer
-$ oc new-project mlbparks
+$ oc new-project abi-dev
 $ oc create -f https://github.com/oniabifo/openshift3mlbparks/blob/master/mlbparks-template-eap.yaml
 $ oc new-app mlbparks
 ````
