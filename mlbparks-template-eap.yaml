@@ -96,7 +96,7 @@ objects:
   apiVersion: v1
   metadata:
     creationTimestamp: 2016-02-18T19:14:38Z
-    name: example-config
+    name: MLB Parks (Dev)
     namespace: default
     APPNAME: MLB Parks (Dev)
   
