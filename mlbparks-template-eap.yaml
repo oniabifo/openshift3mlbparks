@@ -94,6 +94,10 @@ objects:
         
 - kind: ConfigMap
   apiVersion: v1
+    metadata:
+    creationTimestamp: 2016-02-18T19:14:38Z
+    name: example-config
+    namespace: default
   
 - kind: ImageStream
   apiVersion: v1
