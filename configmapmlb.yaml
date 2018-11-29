@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2016-02-18T18:52:05Z
+  name: MLB-Parks-(Dev)
+  namespace: mlbparks
