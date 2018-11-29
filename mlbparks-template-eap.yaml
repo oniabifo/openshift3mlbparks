@@ -19,7 +19,7 @@ parameters:
   name: APPLICATION_HOSTNAME
 - description: Git source URI for application
   name: GIT_URI
-  value: https://github.com/jorgemoralespou/openshift3mlbparks.git
+  value: https://github.com/oniabifo/openshift3mlbparks.git
 - description: Git branch/tag reference
   name: GIT_REF
   value: master
@@ -94,10 +94,11 @@ objects:
         
 - kind: ConfigMap
   apiVersion: v1
-    metadata:
+  metadata:
     creationTimestamp: 2016-02-18T19:14:38Z
     name: example-config
     namespace: default
+    APPNAME: JUSTTEST
   
 - kind: ImageStream
   apiVersion: v1
