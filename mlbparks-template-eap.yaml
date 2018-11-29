@@ -91,6 +91,10 @@ objects:
       to:
         kind: ImageStreamTag
         name: "${APPLICATION_NAME}:latest"
+        
+- kind: ConfigMap
+  apiVersion: v1
+  
 - kind: ImageStream
   apiVersion: v1
   metadata:
@@ -271,3 +275,7 @@ objects:
       targetPort: 8888
     selector:
       deploymentConfig: "${APPLICATION_NAME}"
+      
+      
+      
+      
