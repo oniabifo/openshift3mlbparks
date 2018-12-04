@@ -1,6 +1,6 @@
 node('maven') {
              // define commands
-             def mvnCmd = "mvn -s configuration/cicd-settings.xml"
+             def mvnCmd = "mvn -s nexus3_settings.xml"
              stage ('Build') {
                git branch: 'master', url: 'https://github.com/oniabifo/openshift3mlbparks.git'
                sh "${mvnCmd} clean install -DskipTests=true"
