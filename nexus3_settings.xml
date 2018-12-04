@@ -18,34 +18,25 @@
     <profile>
       <id>nexus</id>
       <!--Override the repository (and pluginRepository) "central" from the Maven Super POM
-          to activate snapshots for both! -->
-      <repositories>
-        <repository>
-          <id>central</id>
-          <url>http://central</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>central</id>
-          <url>http://central</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
+          to activate snapshots for both! -->  
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://central</url>
+      <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
+      <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+    </repository>
+  </repositories>
+ <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <url>http://central</url>
+      <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
+      <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+    </pluginRepository>
+  </pluginRepositories>
     </profile>
   </profiles>
-
   <pluginGroups>
     <pluginGroup>org.sonatype.plugins</pluginGroup>
   </pluginGroups>
