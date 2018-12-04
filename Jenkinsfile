@@ -2,7 +2,7 @@ node('maven') {
              // define commands
              def mvnCmd = "mvn -s configuration/cicd-settings.xml"
              stage ('Build') {
-               git branch: 'eap-7', url: 'http://gogs:3000/gogs/openshift-tasks.git'
+               git branch: 'master', url: 'https://github.com/oniabifo/openshift3mlbparks.git'
                sh "${mvnCmd} clean install -DskipTests=true"
              }
              stage ('Test and Analysis') {
@@ -12,7 +12,7 @@ node('maven') {
                        step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
                    },
                    'Static Analysis': {
-                       sh "${mvnCmd} jacoco:report sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -DskipTests=true"
+                       sh "${mvnCmd} jacoco:report sonar:sonar -Dsonar.host.url=http://sonarqube-abi-sonarqube.apps.na39.openshift.opentlc.com -DskipTests=true"
                    }
                )
              }
